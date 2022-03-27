@@ -20,7 +20,8 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@test/*": ["test/*"],
-      "@moduleClient/*": ["src/app/modules/client/*"],
+      "@moduleDelivery/*": ["src/app/modules/delivery/*"],
+      "@moduleAndress/*": ["src/app/modules/andress/*"],
     }
   }
 }

@@ -1,10 +1,13 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
-export class ClientEntity {
+export class Andress {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  latitude: string;
+
+  @Column()
+  longitude: string;
 }

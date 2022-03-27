@@ -1,7 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ClientModule } from '@moduleClient/client.module';
-import { ClientEntity } from '@moduleClient/models/client.entity';
+import { DeliveryModule } from '@moduleDelivery/delivery.module';
+import { Delivery } from '@moduleDelivery/models/delivery.entity';
+import { Andress } from '@moduleAndress/models/andress.entity';
 
 @Module({
   imports: [
@@ -10,9 +11,9 @@ import { ClientEntity } from '@moduleClient/models/client.entity';
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
       synchronize: true,
-      entities: [ClientEntity],
+      entities: [Delivery, Andress],
     }),
-    ClientModule,
+    DeliveryModule,
   ],
 })
 export class AppModule {}
