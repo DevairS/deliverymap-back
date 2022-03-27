@@ -16,13 +16,13 @@ export class Delivery {
   name: string;
 
   @Column()
-  date: string;
+  date: Date;
 
-  @OneToOne(() => Andress, (andress) => andress.id)
+  @OneToOne(() => Andress)
   @JoinColumn()
   startingPoint: Andress;
 
-  @OneToOne(() => Andress, (andress) => andress.id)
+  @OneToOne(() => Andress)
   @JoinColumn()
   deliveryPoint: Andress;
 }

@@ -12,6 +12,7 @@ import { Andress } from '@moduleAndress/models/andress.entity';
       autoLoadEntities: true,
       synchronize: true,
       entities: [Delivery, Andress],
+      dropSchema: true,
     }),
     DeliveryModule,
   ],

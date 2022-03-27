@@ -18,7 +18,6 @@ export class DeliveryController {
 
   @Post()
   async create(@Body() delivery) {
-    console.log(delivery);
     const startingPoint = await this.createAndress.execute(
       delivery.startingPoint,
     );

@@ -15,6 +15,7 @@ export class DeliveryRepository implements IDeliveryRepository {
   }
 
   create(delivery: IDelivery): Promise<IDelivery> {
-    return this.deliveryRepository.save(delivery);
+    const dateTimestamps = new Date(delivery.date);
+    return this.deliveryRepository.save({ ...delivery, date: dateTimestamps });
   }
 }

@@ -6,8 +6,8 @@ export class Andress {
   id: number;
 
   @Column()
-  latitude: string;
+  latitude: number;
 
   @Column()
-  longitude: string;
+  longitude: number;
 }

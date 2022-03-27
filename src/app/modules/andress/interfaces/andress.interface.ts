@@ -1,5 +1,5 @@
 export interface IAndress {
   id: number;
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
 }
