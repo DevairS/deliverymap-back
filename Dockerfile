@@ -11,4 +11,4 @@ EXPOSE 9229
 
 RUN npm install
 
-CMD npm run start:debug
+CMD ["npm", "start"]

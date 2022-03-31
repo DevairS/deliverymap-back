@@ -23,4 +23,14 @@ export class DeliveryRepository implements IDeliveryRepository {
     const dateTimestamps = new Date(delivery.date);
     return this.deliveryRepository.save({ ...delivery, date: dateTimestamps });
   }
+
+  findById(id: string): Promise<IDelivery> {
+    const data = getRepository(Delivery)
+      .createQueryBuilder('delivery')
+      .innerJoinAndSelect('delivery.startingPoint', 'startingPoint')
+      .innerJoinAndSelect('delivery.deliveryPoint', 'deliveryPoint')
+      .where('delivery.id = :id', { id })
+      .getOne();
+    return data;
+  }
 }

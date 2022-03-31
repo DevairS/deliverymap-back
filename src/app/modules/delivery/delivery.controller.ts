@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateAddress } from '../address/useCases/createAddress.usecase';
 import { CreateDelivery } from './useCases/CreateDelivery.usecases';
 import { FindDeliveries } from './useCases/FindDeliveries.usecases';
+import { FindDeliveryById } from './useCases/FindDeliveryById.usecases';
 
 @Controller('delivery')
 export class DeliveryController {
@@ -9,11 +10,16 @@ export class DeliveryController {
     private readonly findDeliverys: FindDeliveries,
     private readonly createDelivery: CreateDelivery,
     private readonly createAddress: CreateAddress,
+    private readonly findDeliveryById: FindDeliveryById,
   ) {}
   @Get()
   getAll() {
-    debugger;
     return this.findDeliverys.execute();
+  }
+
+  @Get('/:id')
+  async getOne(@Param() params) {
+    return this.findDeliveryById.execute(params.id);
   }
 
   @Post()

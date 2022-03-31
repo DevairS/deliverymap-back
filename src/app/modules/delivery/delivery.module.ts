@@ -7,6 +7,7 @@ import { DeliveryRepository } from './repositories/deliveryRepository';
 import { FindDeliveries } from './useCases/FindDeliveries.usecases';
 import { CreateDelivery } from './useCases/CreateDelivery.usecases';
 import { AddressModule } from '../address/address.module';
+import { FindDeliveryById } from './useCases/FindDeliveryById.usecases';
 
 @Module({
   imports: [TypeOrmModule.forFeature([Delivery]), AddressModule],
@@ -17,6 +18,7 @@ import { AddressModule } from '../address/address.module';
     },
     FindDeliveries,
     CreateDelivery,
+    FindDeliveryById,
   ],
   controllers: [DeliveryController],
 })
