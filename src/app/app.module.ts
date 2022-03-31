@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { DeliveryModule } from '@moduleDelivery/delivery.module';
 import { Delivery } from '@moduleDelivery/models/delivery.entity';
-import { Andress } from '@moduleAndress/models/andress.entity';
+import { Address } from '@moduleAddress/models/address.entity';
 
 @Module({
   imports: [
@@ -11,8 +11,8 @@ import { Andress } from '@moduleAndress/models/andress.entity';
       url: process.env.DATABASE_URL,
       autoLoadEntities: true,
       synchronize: true,
-      entities: [Delivery, Andress],
-      dropSchema: true,
+      entities: [Delivery, Address],
+      dropSchema: false,
     }),
     DeliveryModule,
   ],

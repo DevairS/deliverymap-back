@@ -5,8 +5,10 @@ import { AppModule } from '@app/app.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
   app.useGlobalPipes(new ValidationPipe({ transform: true }));
-  await app.listen(process.env.PORT || 3000);
+  app.enableCors();
+  await app.listen(process.env.PORT);
 
-  console.log(`Server running on port ${process.env.PORT || 3000}`);
+  console.log(`Server running in docker port ${process.env.PORT}`);
+  console.log(`Server running in external port ${process.env.PORT_API}`);
 }
 bootstrap();

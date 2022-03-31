@@ -1,32 +1,21 @@
-import { Address } from '@app/modules/address/models/address.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
-  JoinColumn,
-  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 
 @Entity()
-export class Delivery {
+export class Address {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Column()
-  name: string;
+  latitude: number;
 
   @Column()
-  date: Date;
-
-  @OneToOne(() => Address)
-  @JoinColumn()
-  startingPoint: Address;
-
-  @OneToOne(() => Address)
-  @JoinColumn()
-  deliveryPoint: Address;
+  longitude: number;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

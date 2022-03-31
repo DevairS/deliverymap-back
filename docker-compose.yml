@@ -12,6 +12,7 @@ services:
             DATABASE_URL: postgres://user:password@postgres:5432/db
             NODE_ENV: development
             PORT: 3000
+            PORT_API: 8080
         volumes:
             - "./:/app"
         links:

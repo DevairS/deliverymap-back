@@ -11,7 +11,6 @@ export class FindDeliveries implements IUseCaseFindDeliveries {
   ) {}
 
   async execute(): Promise<IDelivery[]> {
-    debugger;
     const Deliverys = await this.deliveryRepository.findAll();
     return Deliverys;
   }

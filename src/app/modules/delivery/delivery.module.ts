@@ -6,10 +6,10 @@ import { Delivery } from './models/delivery.entity';
 import { DeliveryRepository } from './repositories/deliveryRepository';
 import { FindDeliveries } from './useCases/FindDeliveries.usecases';
 import { CreateDelivery } from './useCases/CreateDelivery.usecases';
-import { AndressModule } from '../andress/andress.module';
+import { AddressModule } from '../address/address.module';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Delivery]), AndressModule],
+  imports: [TypeOrmModule.forFeature([Delivery]), AddressModule],
   providers: [
     {
       useClass: DeliveryRepository,

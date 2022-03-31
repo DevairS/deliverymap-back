@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
-import { CreateAndress } from '../andress/useCases/createAndress.usecase';
+import { CreateAddress } from '../address/useCases/createAddress.usecase';
 import { CreateDelivery } from './useCases/CreateDelivery.usecases';
 import { FindDeliveries } from './useCases/FindDeliveries.usecases';
 
@@ -8,7 +8,7 @@ export class DeliveryController {
   constructor(
     private readonly findDeliverys: FindDeliveries,
     private readonly createDelivery: CreateDelivery,
-    private readonly createAndress: CreateAndress,
+    private readonly createAddress: CreateAddress,
   ) {}
   @Get()
   getAll() {
@@ -18,10 +18,10 @@ export class DeliveryController {
 
   @Post()
   async create(@Body() delivery) {
-    const startingPoint = await this.createAndress.execute(
+    const startingPoint = await this.createAddress.execute(
       delivery.startingPoint,
     );
-    const deliveryPoint = await this.createAndress.execute(
+    const deliveryPoint = await this.createAddress.execute(
       delivery.deliveryPoint,
     );
     return this.createDelivery.execute({

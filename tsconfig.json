@@ -21,7 +21,7 @@
       "@app/*": ["src/app/*"],
       "@test/*": ["test/*"],
       "@moduleDelivery/*": ["src/app/modules/delivery/*"],
-      "@moduleAndress/*": ["src/app/modules/andress/*"],
+      "@moduleAddress/*": ["src/app/modules/address/*"],
     }
   }
 }

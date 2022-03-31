@@ -1,5 +1,5 @@
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, getRepository } from 'typeorm';
 import { IDelivery } from '../interfaces/delivery.interface';
 import { IDeliveryRepository } from '../interfaces/deliveryRepository.interface';
 import { Delivery } from '../models/delivery.entity';
@@ -11,7 +11,12 @@ export class DeliveryRepository implements IDeliveryRepository {
   ) {}
 
   findAll(): Promise<IDelivery[]> {
-    return this.deliveryRepository.find();
+    const data = getRepository(Delivery)
+      .createQueryBuilder('delivery')
+      .innerJoinAndSelect('delivery.startingPoint', 'startingPoint')
+      .innerJoinAndSelect('delivery.deliveryPoint', 'deliveryPoint')
+      .getMany();
+    return data;
   }
 
   create(delivery: IDelivery): Promise<IDelivery> {
