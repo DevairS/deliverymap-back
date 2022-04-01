@@ -3,16 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DeliveryModule } from '@moduleDelivery/delivery.module';
 import { Delivery } from '@moduleDelivery/models/delivery.entity';
 import { Address } from '@moduleAddress/models/address.entity';
-import { env } from 'process';
 
-const ssl = {
-  ssl: true,
-  extra: {
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  },
-};
 @Module({
   imports: [
     TypeOrmModule.forRoot({

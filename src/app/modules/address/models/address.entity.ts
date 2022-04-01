@@ -12,10 +12,10 @@ export class Address {
   id: number;
 
   @Column()
-  latitude: number;
+  latitude: string;
 
   @Column()
-  longitude: number;
+  longitude: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
